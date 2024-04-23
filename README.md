@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+<h1 align="center">Projeto React - Sistema Skill</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://vsoares.com/wp-content/uploads/2024/04/logo.png" alt="Logo do Projeto" width="30%">
+</p>
 
-Currently, two official plugins are available:
+## Sobre
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este é um projeto React feito em TypeScript e utilizando Vite como ferramenta de construção. Ele implementa um sistema de login e gestão de skills. Consiste em três telas principais: Tela de Login, Tela de Cadastrar-se e Tela Home. Além disso, o projeto inclui funcionalidades como armazenamento local de credenciais, validação de cadastro, edição e exclusão de skills, e autenticação de usuário.
 
-## Expanding the ESLint configuration
+## Instalação
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Para instalar e executar este projeto localmente, siga estas etapas:
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone o repositório:**
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Navegue até o diretório do projeto:**
+cd nome-do-repositorio
+
+3. **Instale as dependências:**
+npm install
+
+4. **Inicie o servidor de desenvolvimento:**
+npm run dev
+
+
+## Uso
+
+Após iniciar o servidor de desenvolvimento, você pode acessar o projeto em seu navegador em [http://localhost:3000](http://localhost:3000). O sistema apresentará as seguintes funcionalidades:
+
+1. **Tela de Login:** Permite que os usuários façam login em suas contas. Eles devem fornecer um nome de usuário e uma senha válidos. Eles também têm a opção de salvar suas credenciais para futuros acessos.
+
+2. **Tela de Cadastrar-se:** Permite que novos usuários se cadastrem no sistema. Eles devem fornecer um nome de usuário, uma senha e confirmar a senha. A senha e a confirmação de senha devem ser iguais.
+
+3. **Tela Home:** Exibe uma lista de skills que o usuário adicionou. O usuário pode editar o nível de habilidade de cada skill, além de excluir skills da lista. Ele também pode adicionar novas skills através de um modal de cadastro.
+
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
