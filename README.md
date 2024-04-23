@@ -13,7 +13,7 @@ Este é um projeto React feito em TypeScript e utilizando Vite como ferramenta d
 Para instalar e executar este projeto localmente, siga estas etapas:
 
 1. **Clone o repositório:**
-[git clone https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/vs-costa/frontend-sistemaSkill)
+[git clone https://github.com/vscosta/frontend-sistemaSkill](https://github.com/vs-costa/frontend-sistemaSkill)
 
 
 2. **Navegue até o diretório do projeto:**
