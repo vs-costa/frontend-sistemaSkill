@@ -13,11 +13,11 @@ Este é um projeto React feito em TypeScript e utilizando Vite como ferramenta d
 Para instalar e executar este projeto localmente, siga estas etapas:
 
 1. **Clone o repositório:**
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+[git clone https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/vs-costa/frontend-sistemaSkill)
 
 
 2. **Navegue até o diretório do projeto:**
-cd nome-do-repositorio
+cd frontend-sistemaSkill
 
 3. **Instale as dependências:**
 npm install
@@ -28,7 +28,7 @@ npm run dev
 
 ## Uso
 
-Após iniciar o servidor de desenvolvimento, você pode acessar o projeto em seu navegador em [http://localhost:3000](http://localhost:3000). O sistema apresentará as seguintes funcionalidades:
+Após iniciar o servidor de desenvolvimento, você pode acessar o projeto em seu navegador em [http://localhost:5173](http://localhost:5173). O sistema apresentará as seguintes funcionalidades:
 
 1. **Tela de Login:** Permite que os usuários façam login em suas contas. Eles devem fornecer um nome de usuário e uma senha válidos. Eles também têm a opção de salvar suas credenciais para futuros acessos.
 
