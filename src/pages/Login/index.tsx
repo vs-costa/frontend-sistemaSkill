@@ -44,52 +44,54 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div style={{ width: 300, margin: 'auto', marginTop: 50 }}>
-      <Title level={2}>Login</Title>
-      <Form
-        form={form}
-        name="login"
-        initialValues={{ remember: true }}
-        onFinish={handleLogin}
-      >
-        <Form.Item
-          name="email"
-          rules={[{ required: true, message: 'Por favor, insira seu email!' }]}
-          initialValue={localStorage.getItem('email')}
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: 'calc(100vh - 100px)' }}>
+      <div style={{ width: 300, borderRadius: 10, boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.3)', padding: 20 }}>
+      <Title level={2} style={{ color: '#003eb3', marginBottom: '20px', textAlign: 'center'}}>Login</Title>
+        <Form
+          form={form}
+          name="login"
+          initialValues={{ remember: true }}
+          onFinish={handleLogin}
         >
-          <Input placeholder="Email" />
-        </Form.Item>
-
-        <Form.Item
-          name="password"
-          rules={[{ required: true, message: 'Por favor, insira sua senha!' }]}
-          initialValue={localStorage.getItem('password')}
-        >
-          <Input.Password placeholder="Senha" />
-        </Form.Item>
-
-        <Form.Item>
-          <Checkbox
-            checked={rememberCredentials}
-            onChange={(e) => setRememberCredentials(e.target.checked)}
+          <Form.Item
+            name="email"
+            rules={[{ required: true, message: 'Por favor, insira seu email!' }]}
+            initialValue={localStorage.getItem('email')}
           >
-            Lembrar login e senha
-          </Checkbox>
-        </Form.Item>
+            <Input placeholder="Email" />
+          </Form.Item>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit" style={{ width: '100%' }} loading={loading}>
-            Entrar
-          </Button>
-          <Link to="/cadastro">
-            <Button type="link" style={{ width: '100%', marginTop: '10px' }}>
-              Ainda não tem cadastro? Clique aqui!
+          <Form.Item
+            name="password"
+            rules={[{ required: true, message: 'Por favor, insira sua senha!' }]}
+            initialValue={localStorage.getItem('password')}
+          >
+            <Input.Password placeholder="Senha" />
+          </Form.Item>
+
+          <Form.Item>
+            <Checkbox
+              checked={rememberCredentials}
+              onChange={(e) => setRememberCredentials(e.target.checked)}
+            >
+              Lembrar login e senha
+            </Checkbox>
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit" style={{ width: '100%' }} loading={loading}>
+              Entrar
             </Button>
-          </Link>
-        </Form.Item>
+            <Link to="/cadastro">
+              <Button type="link" style={{ width: '100%', marginTop: '10px' }}>
+                Ainda não tem cadastro? Clique aqui!
+              </Button>
+            </Link>
+          </Form.Item>
 
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </Form>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+        </Form>
+      </div>
     </div>
   );
 };

@@ -154,7 +154,7 @@ const Home: React.FC = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <Title level={2}>Skills</Title>
+      <Title level={1} style={{color: '#003eb3', marginBottom: '10px'}}>Skills</Title>
 
       {skills.length === 0 ? (
         <p>Nenhuma skill cadastrada.</p>
