@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 interface AuthContextType {
@@ -8,14 +8,24 @@ interface AuthContextType {
     userId: number | null;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const api = axios.create({
     baseURL: 'http://localhost:8080/api'
 });
 
+api.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+            console.log(`Token adicionado aos cabeçalhos: ${token}`);
+        }
+        return config;
+    },
+    error => Promise.reject(error)
+);
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
@@ -26,16 +36,23 @@ export const useAuth = () => {
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-    const [userId, setUserId] = useState<number | null>(null); // Armazena o ID do usuário
+    const [userId, setUserId] = useState<number | null>(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsAuthenticated(true);
+        }
+    }, []);
 
     const login = async (email: string, password: string) => {
         try {
             const response = await api.post('/systemUser/login', { email, password });
             const token = response.data.token;
-            const userId = response.data.userId; // Certifique-se de que o backend está retornando o userId
             localStorage.setItem('token', token);
+            console.log(localStorage.getItem('token'));
             setIsAuthenticated(true);
-            setUserId(userId); // Atualiza o estado com o ID do usuário
+            setUserId(response.data.userId);
         } catch (error) {
             console.error('Erro ao fazer login:', error);
             throw error;
@@ -44,8 +61,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const logout = () => {
         localStorage.removeItem('token');
-        setIsAuthenticated(false);
-        setUserId(null);
+        const tokenRemoved = !localStorage.getItem('token');
+        if (tokenRemoved) {
+            setIsAuthenticated(false);
+            setUserId(null);
+            console.log('Token removido com sucesso.');
+        } else {
+            console.warn('Falha ao remover o token.');
+        }
     };
 
     return (
